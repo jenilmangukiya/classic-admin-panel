@@ -1,8 +1,8 @@
-import "./App.css";
-import ThemeCustomization from "./themes";
-import ScrollTop from "./components/ScrollTop";
-import { RouterProvider } from "react-router-dom";
-import router from "./routes";
+import './App.css';
+import ThemeCustomization from './themes';
+import ScrollTop from './components/ScrollTop';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes';
 
 function App() {
   return (

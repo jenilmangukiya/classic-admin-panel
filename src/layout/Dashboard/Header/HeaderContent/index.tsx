@@ -12,11 +12,12 @@ import MobileSection from './MobileSection';
 
 // project import
 import { GithubOutlined } from '@ant-design/icons';
+import { Theme } from '@mui/material';
 
 // ==============================|| HEADER - CONTENT ||============================== //
 
 export default function HeaderContent() {
-  const downLG = useMediaQuery((theme) => theme.breakpoints.down('lg'));
+  const downLG = useMediaQuery((theme: Theme) => theme.breakpoints.down('lg'));
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function HeaderContent() {
       {downLG && <Box sx={{ width: '100%', ml: 1 }} />}
       <IconButton
         component={Link}
-        href="https://github.com/codedthemes/mantis-free-react-admin-template"
+        href="https://github.com/jenilmangukiya/classic-admin-panel"
         target="_blank"
         disableRipple
         color="secondary"
