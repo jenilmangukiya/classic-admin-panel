@@ -55,22 +55,25 @@ export default function MonthlyBarChart() {
   const [options, setOptions] = useState(barChartOptions);
 
   useEffect(() => {
-    setOptions((prevState) => ({
-      ...prevState,
-      colors: [info],
-      xaxis: {
-        labels: {
-          style: {
-            colors: [secondary, secondary, secondary, secondary, secondary, secondary, secondary]
+    setOptions(
+      (prevState) =>
+        ({
+          ...prevState,
+          colors: [info],
+          xaxis: {
+            labels: {
+              style: {
+                colors: [secondary, secondary, secondary, secondary, secondary, secondary, secondary]
+              }
+            }
           }
-        }
-      }
-    }));
+        } as any)
+    );
   }, [primary, info, secondary]);
 
   return (
     <Box id="chart" sx={{ bgcolor: 'transparent' }}>
-      <ReactApexChart options={options} series={series} type="bar" height={365} />
+      <ReactApexChart options={options as any} series={series} type="bar" height={365} />
     </Box>
   );
 }

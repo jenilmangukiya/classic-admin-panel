@@ -43,7 +43,7 @@ const AnalyticEcommerce: FC<AnalyticEcommerceProps> = ({ color = 'primary', titl
           {percentage && (
             <Grid item>
               <Chip
-                variant="combined"
+                variant="outlined"
                 color={color}
                 icon={isLoss ? <FallOutlined style={iconSX} /> : <RiseOutlined style={iconSX} />}
                 label={`${percentage}%`}

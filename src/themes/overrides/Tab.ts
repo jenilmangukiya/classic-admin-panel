@@ -1,6 +1,6 @@
-import { alpha } from '@mui/material/styles';
+import { alpha, Theme } from '@mui/material/styles';
 
-export default function Tab(theme) {
+export default function Tab(theme: Theme) {
   return {
     MuiTab: {
       styleOverrides: {
@@ -9,7 +9,7 @@ export default function Tab(theme) {
           color: theme.palette.text.primary,
           borderRadius: 4,
           '&:hover': {
-            backgroundColor: alpha(theme.palette.primary.lighter, 0.6),
+            backgroundColor: alpha(theme.palette.primary.lighter || '', 0.6),
             color: theme.palette.primary.main
           },
           '&:focus-visible': {

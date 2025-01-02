@@ -38,7 +38,7 @@ const CustomShadowBox: React.FC<CustomShadowBoxProps> = ({ shadow, label, color,
 );
 
 const ComponentShadow: React.FC = () => {
-  const theme = useTheme();
+  const theme: any = useTheme();
 
   return (
     <ComponentSkeleton>

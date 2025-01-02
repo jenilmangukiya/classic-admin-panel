@@ -32,6 +32,7 @@ interface TabPanelProps {
   children?: ReactNode;
   value: number;
   index: number;
+  dir: any;
 }
 
 // TabPanel component
@@ -52,7 +53,7 @@ function a11yProps(index: number) {
 }
 
 export default function Profile() {
-  const theme = useTheme();
+  const theme: any = useTheme();
 
   const anchorRef = useRef<HTMLButtonElement | null>(null);
   const [open, setOpen] = useState(false);
@@ -70,6 +71,7 @@ export default function Profile() {
   const [value, setValue] = useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log('event', event);
     setValue(newValue);
   };
 
@@ -95,7 +97,7 @@ export default function Profile() {
         onClick={handleToggle}
       >
         <Stack direction="row" spacing={1.25} alignItems="center" sx={{ p: 0.5 }}>
-          <Avatar alt="profile user" src={avatar1} size="sm" />
+          <Avatar alt="profile user" src={avatar1} size="sm"></Avatar>
           <Typography variant="subtitle1" sx={{ textTransform: 'capitalize' }}>
             John Doe
           </Typography>

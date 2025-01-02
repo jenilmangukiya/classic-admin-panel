@@ -88,7 +88,7 @@ const OrderTableHead: React.FC<OrderTableHeadProps> = ({ order, orderBy }) => {
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
-            align={headCell.align}
+            align={headCell.align as any}
             padding={headCell.disablePadding ? 'none' : 'normal'}
             sortDirection={orderBy === headCell.id ? order : false}
           >

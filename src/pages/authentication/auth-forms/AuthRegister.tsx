@@ -26,17 +26,17 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 export default function AuthRegister() {
-  const [level, setLevel] = useState();
+  const [level, setLevel] = useState<any>();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleMouseDownPassword = (event) => {
+  const handleMouseDownPassword = (event: any) => {
     event.preventDefault();
   };
 
-  const changePassword = (value) => {
+  const changePassword = (value: any) => {
     const temp = strengthIndicator(value);
     setLevel(strengthColor(temp));
   };
@@ -48,6 +48,7 @@ export default function AuthRegister() {
   return (
     <>
       <Formik
+        onSubmit={() => console.log('sumitted')}
         initialValues={{
           firstname: '',
           lastname: '',

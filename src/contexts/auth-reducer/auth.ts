@@ -8,7 +8,7 @@ export const initialState = {
   user: null
 };
 
-const auth = (state = initialState, action) => {
+const auth = (state = initialState, action: any) => {
   switch (action.type) {
     case REGISTER: {
       const { user } = action.payload;

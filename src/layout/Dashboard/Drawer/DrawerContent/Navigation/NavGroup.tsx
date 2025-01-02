@@ -21,7 +21,7 @@ interface NavGroupProps {
 
 const NavGroup: FC<NavGroupProps> = ({ item }) => {
   const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
+  const drawerOpen = menuMaster && menuMaster.isDashboardDrawerOpened;
 
   const navCollapse = item.children?.map((menuItem) => {
     switch (menuItem.type) {
@@ -32,7 +32,7 @@ const NavGroup: FC<NavGroupProps> = ({ item }) => {
           </Typography>
         );
       case 'item':
-        return <NavItem key={menuItem.id} item={menuItem} level={1} />;
+        return <NavItem key={menuItem.id} item={menuItem as any} level={1} />;
       default:
         return (
           <Typography key={menuItem.id} variant="h6" color="error" align="center">

@@ -1,6 +1,6 @@
-import { alpha } from '@mui/material/styles';
+import { alpha, Theme } from '@mui/material/styles';
 
-export default function OutlinedInput(theme) {
+export default function OutlinedInput(theme: Theme) {
   return {
     MuiOutlinedInput: {
       styleOverrides: {

@@ -17,16 +17,16 @@ import Transitions from './../../../../components/@extended/Transitions';
 import MoreOutlined from '@ant-design/icons/MoreOutlined';
 
 export default function MobileSection() {
-  const theme = useTheme();
+  const theme: any = useTheme();
 
   const [open, setOpen] = useState(false);
-  const anchorRef = useRef(null);
+  const anchorRef: any = useRef(null);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
+  const handleClose = (event: any) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
@@ -37,7 +37,7 @@ export default function MobileSection() {
   const prevOpen = useRef(open);
   useEffect(() => {
     if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
+      anchorRef.current?.focus();
     }
 
     prevOpen.current = open;
@@ -60,7 +60,6 @@ export default function MobileSection() {
           aria-haspopup="true"
           onClick={handleToggle}
           color="secondary"
-          variant="light"
         >
           <MoreOutlined />
         </IconButton>

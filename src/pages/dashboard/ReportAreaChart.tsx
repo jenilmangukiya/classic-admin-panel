@@ -64,25 +64,28 @@ export default function ReportAreaChart() {
   const [options, setOptions] = useState(areaChartOptions);
 
   useEffect(() => {
-    setOptions((prevState) => ({
-      ...prevState,
-      colors: [theme.palette.warning.main],
-      xaxis: {
-        labels: {
-          style: {
-            colors: [secondary, secondary, secondary, secondary, secondary, secondary, secondary, secondary]
+    setOptions(
+      (prevState) =>
+        ({
+          ...prevState,
+          colors: [theme.palette.warning.main],
+          xaxis: {
+            labels: {
+              style: {
+                colors: [secondary, secondary, secondary, secondary, secondary, secondary, secondary, secondary]
+              }
+            }
+          },
+          grid: {
+            borderColor: line
+          },
+          legend: {
+            labels: {
+              colors: 'grey.500'
+            }
           }
-        }
-      },
-      grid: {
-        borderColor: line
-      },
-      legend: {
-        labels: {
-          colors: 'grey.500'
-        }
-      }
-    }));
+        } as any)
+    );
   }, [primary, secondary, line, theme]);
 
   const [series] = useState([
@@ -92,5 +95,5 @@ export default function ReportAreaChart() {
     }
   ]);
 
-  return <ReactApexChart options={options} series={series} type="line" height={340} />;
+  return <ReactApexChart options={options as any} series={series} type="line" height={340} />;
 }

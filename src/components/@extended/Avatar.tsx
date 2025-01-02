@@ -100,7 +100,7 @@ const AvatarStyle = styled(MuiAvatar, {
 }));
 
 interface AvatarProps {
-  children: ReactNode;
+  children?: ReactNode;
   color?: string;
   type?: string;
   size?: string;
@@ -111,7 +111,7 @@ export default function Avatar({ children, color = 'primary', type, size = 'md',
   const theme = useTheme();
 
   return (
-    <AvatarStyle theme={theme} color={color} type={type} size={size} {...others}>
+    <AvatarStyle theme={theme} color={color} type={type || ''} size={size} {...others}>
       {children}
     </AvatarStyle>
   );

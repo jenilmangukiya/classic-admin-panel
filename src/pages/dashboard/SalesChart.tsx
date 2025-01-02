@@ -49,7 +49,7 @@ const columnChartOptions = {
   },
   tooltip: {
     y: {
-      formatter(val) {
+      formatter(val: any) {
         return `$ ${val} thousands`;
       }
     }
@@ -99,7 +99,7 @@ export default function SalesChart() {
 
   const [series, setSeries] = useState(initialSeries);
 
-  const handleLegendChange = (event) => {
+  const handleLegendChange = (event: any) => {
     setLegend({ ...legend, [event.target.name]: event.target.checked });
   };
 
@@ -181,7 +181,7 @@ export default function SalesChart() {
           </FormControl>
         </Stack>
         <Box id="chart" sx={{ bgcolor: 'transparent' }}>
-          <ReactApexChart options={options} series={series} type="bar" height={360} />
+          <ReactApexChart options={options as any} series={series} type="bar" height={360} />
         </Box>
       </Box>
     </MainCard>

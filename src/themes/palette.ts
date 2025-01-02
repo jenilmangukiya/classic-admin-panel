@@ -4,7 +4,7 @@ import { presetPalettes } from '@ant-design/colors';
 
 import ThemeOption from './theme';
 
-export default function Palette(mode, presetColor) {
+export default function Palette() {
   const colors = presetPalettes;
 
   const greyPrimary = [
@@ -25,11 +25,10 @@ export default function Palette(mode, presetColor) {
 
   colors.grey = [...greyPrimary, ...greyAscent, ...greyConstant];
 
-  const paletteColor = ThemeOption(colors, presetColor, mode);
+  const paletteColor = ThemeOption(colors);
 
   return createTheme({
     palette: {
-      mode,
       common: {
         black: '#000',
         white: '#fff'

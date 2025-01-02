@@ -41,7 +41,7 @@ export default function UniqueVisitorCard() {
       </Grid>
       <MainCard content={false} sx={{ mt: 1.5 }}>
         <Box sx={{ pt: 1, pr: 2 }}>
-          <IncomeAreaChart slot={slot} />
+          <IncomeAreaChart slot={slot as any} />
         </Box>
       </MainCard>
     </>

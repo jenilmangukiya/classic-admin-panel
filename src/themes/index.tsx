@@ -12,7 +12,7 @@ interface ThemeCustomizationProps {
 }
 
 export default function ThemeCustomization({ children }: ThemeCustomizationProps) {
-  const theme = Palette('light', 'default');
+  const theme = Palette();
 
   const themeTypography = Typography(`'Public Sans', sans-serif`);
   const themeCustomShadows = useMemo(() => CustomShadows(theme), [theme]);

@@ -45,17 +45,17 @@ const actionSX = {
 };
 
 export default function Notification() {
-  const theme = useTheme();
+  const theme: any = useTheme();
   const matchesXs = useMediaQuery(theme.breakpoints.down('md'));
 
-  const anchorRef = useRef(null);
+  const anchorRef: any = useRef(null);
   const [read, setRead] = useState(2);
   const [open, setOpen] = useState(false);
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
+  const handleClose = (event: any) => {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
@@ -68,7 +68,6 @@ export default function Notification() {
     <Box sx={{ flexShrink: 0, ml: 0.75 }}>
       <IconButton
         color="secondary"
-        variant="light"
         sx={{
           color: 'text.primary',
           bgcolor: open ? iconBackColorOpen : 'transparent'

@@ -40,21 +40,21 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
   const theme = useTheme();
 
   const { menuMaster } = useGetMenuMaster();
-  const drawerOpen = menuMaster.isDashboardDrawerOpened;
-  const openItem = menuMaster.openedItem;
+  const drawerOpen = menuMaster && menuMaster.isDashboardDrawerOpened;
+  const openItem = menuMaster && menuMaster.openedItem;
 
   let itemTarget = '_self';
   if (item.target) {
     itemTarget = '_blank';
   }
-  let listItemProps = {
-    component: forwardRef((props, ref) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />)
+  let listItemProps: any = {
+    component: forwardRef((props, ref) => <Link ref={ref as any} {...props} to={item.url} target={itemTarget} />)
   };
   if (item?.external) {
     listItemProps = { component: 'a', href: item.url, target: itemTarget };
   }
 
-  const Icon = item.icon;
+  const Icon: any = item.icon;
   const itemIcon = item.icon ? <Icon style={{ fontSize: drawerOpen ? '1rem' : '1.25rem' }} /> : null;
 
   const { pathname } = useLocation();
@@ -105,7 +105,7 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
         })
       }}
     >
-      {itemIcon && (
+      {!!itemIcon && (
         <ListItemIcon
           sx={{
             minWidth: 28,
@@ -147,7 +147,7 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
           variant={item.chip.variant}
           size={item.chip.size}
           label={item.chip.label}
-          avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
+          avatar={item.chip.avatar && ((<Avatar>{item.chip.avatar}</Avatar>) as any)}
         />
       )}
     </ListItemButton>

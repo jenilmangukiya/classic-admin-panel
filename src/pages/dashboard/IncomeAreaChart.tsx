@@ -40,7 +40,7 @@ const IncomeAreaChart: React.FC<IncomeAreaChartProps> = ({ slot }) => {
       (prevState) =>
         ({
           ...prevState,
-          colors: [theme.palette.primary.main, theme.palette.primary[700]],
+          colors: [theme.palette.primary.main, theme.palette.primary.dark],
           xaxis: {
             categories:
               slot === 'month'
@@ -95,7 +95,7 @@ const IncomeAreaChart: React.FC<IncomeAreaChartProps> = ({ slot }) => {
     ]);
   }, [slot]);
 
-  return <ReactApexChart options={options} series={series} type="area" height={450} />;
+  return <ReactApexChart options={options as any} series={series} type="area" height={450} />;
 };
 
 export default IncomeAreaChart;
