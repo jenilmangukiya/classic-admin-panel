@@ -1,58 +1,53 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
-// project import
-import Loadable from "../components/Loadable";
-import Dashboard from "../layout/Dashboard";
+import Loadable from '../components/Loadable';
+import Dashboard from '../layout/Dashboard';
 
-const Color = Loadable(lazy(() => import("../pages/component-overview/color")));
-const Typography = Loadable(
-  lazy(() => import("../pages/component-overview/typography"))
-);
-const Shadow = Loadable(
-  lazy(() => import("../pages/component-overview/shadows"))
-);
-const DashboardDefault = Loadable(lazy(() => import("../pages/dashboard")));
-// render - sample page
-const SamplePage = Loadable(
-  lazy(() => import("../pages/extra-pages/sample-page"))
-);
-
-// ==============================|| MAIN ROUTING ||============================== //
+const Color = Loadable(lazy(() => import('../pages/component-overview/color')));
+const Typography = Loadable(lazy(() => import('../pages/component-overview/typography')));
+const Shadow = Loadable(lazy(() => import('../pages/component-overview/shadows')));
+const DashboardDefault = Loadable(lazy(() => import('../pages/dashboard')));
+const SamplePage = Loadable(lazy(() => import('../pages/extra-pages/sample-page')));
+const MuiTable = Loadable(lazy(() => import('../pages/component-overview/MuiTable')));
 
 const MainRoutes = {
-  path: "/",
+  path: '/',
   element: <Dashboard />,
   children: [
     {
-      path: "/",
-      element: <DashboardDefault />,
+      path: '/',
+      element: <DashboardDefault />
     },
     {
-      path: "color",
-      element: <Color />,
+      path: 'color',
+      element: <Color />
     },
     {
-      path: "dashboard",
+      path: 'dashboard',
       children: [
         {
-          path: "default",
-          element: <DashboardDefault />,
-        },
-      ],
+          path: 'default',
+          element: <DashboardDefault />
+        }
+      ]
     },
     {
-      path: "sample-page",
-      element: <SamplePage />,
+      path: 'sample-page',
+      element: <SamplePage />
     },
     {
-      path: "shadow",
-      element: <Shadow />,
+      path: 'shadow',
+      element: <Shadow />
     },
     {
-      path: "typography",
-      element: <Typography />,
+      path: 'typography',
+      element: <Typography />
     },
-  ],
+    {
+      path: 'mui-table',
+      element: <MuiTable />
+    }
+  ]
 };
 
 export default MainRoutes;
