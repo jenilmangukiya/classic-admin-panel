@@ -1,8 +1,7 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-// material-ui
-import Box from "@mui/material/Box";
-import MainCard from "../../components/MainCard";
+import Box from '@mui/material/Box';
+import MainCard from '../../components/MainCard';
 
 // Define props type
 interface AuthCardProps {
@@ -10,15 +9,13 @@ interface AuthCardProps {
   [key: string]: any; // For additional props passed to the component
 }
 
-// ==============================|| AUTHENTICATION - CARD WRAPPER ||============================== //
-
 const AuthCard: React.FC<AuthCardProps> = ({ children, ...other }) => {
   return (
     <MainCard
       sx={{
         maxWidth: { xs: 400, lg: 475 },
         margin: { xs: 2.5, md: 3 },
-        "& > *": { flexGrow: 1, flexBasis: "50%" },
+        '& > *': { flexGrow: 1, flexBasis: '50%' }
       }}
       content={false}
       {...other}

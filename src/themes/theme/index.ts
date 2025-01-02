@@ -1,4 +1,3 @@
-// ==============================|| PRESET THEME - THEME SELECTOR ||============================== //
 declare module '@mui/material/styles' {
   interface PaletteColor {
     darker?: string; // Add 'darker' property to PaletteColor

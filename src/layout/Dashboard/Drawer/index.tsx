@@ -4,7 +4,6 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 
-// project import
 import DrawerHeader from './DrawerHeader';
 import DrawerContent from './DrawerContent';
 import MiniDrawerStyled from './MiniDrawerStyled';
@@ -12,8 +11,6 @@ import MiniDrawerStyled from './MiniDrawerStyled';
 import { drawerWidth } from './../../../config';
 import { handlerDrawerOpen, useGetMenuMaster } from './../../../api/menu';
 import { Theme } from '@mui/material';
-
-// ==============================|| MAIN LAYOUT - DRAWER ||============================== //
 
 interface MainDrawerProps {
   window?: () => Window | null; // Optional function type for window prop

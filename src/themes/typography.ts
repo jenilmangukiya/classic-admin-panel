@@ -1,5 +1,3 @@
-// ==============================|| DEFAULT THEME - TYPOGRAPHY ||============================== //
-
 import { TypographyOptions } from '@mui/material/styles/createTypography';
 
 export default function Typography(fontFamily: string) {

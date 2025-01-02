@@ -1,15 +1,11 @@
 import { useMemo, ReactNode } from 'react';
 
-// material-ui
 import { createTheme, CssBaseline, StyledEngineProvider, ThemeOptions, ThemeProvider } from '@mui/material';
 
-// project import
 import Palette from './palette';
 import Typography from './typography';
 import CustomShadows from './shadows';
 import componentsOverride from './overrides';
-
-// ==============================|| DEFAULT THEME - MAIN  ||============================== //
 
 interface ThemeCustomizationProps {
   children: ReactNode;

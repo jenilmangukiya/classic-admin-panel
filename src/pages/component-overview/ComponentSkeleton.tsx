@@ -1,17 +1,13 @@
-import { useEffect, useState, ReactNode } from "react";
+import { useEffect, useState, ReactNode } from 'react';
 
-// material-ui
-import Grid from "@mui/material/Grid";
-import Skeleton from "@mui/material/Skeleton";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import Grid from '@mui/material/Grid';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
-// project import
-import ComponentWrapper from "./ComponentWrapper";
-import MainCard from "../../components/MainCard";
-
-// ===============================|| COMPONENT - SKELETON ||=============================== //
+import ComponentWrapper from './ComponentWrapper';
+import MainCard from '../../components/MainCard';
 
 interface ComponentSkeletonProps {
   children: ReactNode;
@@ -27,9 +23,7 @@ const ComponentSkeleton: React.FC<ComponentSkeletonProps> = ({ children }) => {
   const skeletonCard = (
     <MainCard
       title={<Skeleton sx={{ width: { xs: 120, md: 180 } }} />}
-      secondary={
-        <Skeleton animation="wave" variant="circular" width={24} height={24} />
-      }
+      secondary={<Skeleton animation="wave" variant="circular" width={24} height={24} />}
     >
       <Stack spacing={1}>
         <Skeleton />
@@ -57,12 +51,7 @@ const ComponentSkeleton: React.FC<ComponentSkeletonProps> = ({ children }) => {
               <Grid item xs={12}>
                 <Typography variant="caption" color="text.secondary">
                   <Stack direction="row" spacing={1}>
-                    <Skeleton
-                      animation="wave"
-                      variant="circular"
-                      width={16}
-                      height={16}
-                    />
+                    <Skeleton animation="wave" variant="circular" width={16} height={16} />
                     <Skeleton sx={{ width: { xs: 250, md: 450 } }} />
                   </Stack>
                 </Typography>
@@ -70,12 +59,7 @@ const ComponentSkeleton: React.FC<ComponentSkeletonProps> = ({ children }) => {
               <Grid item xs={12}>
                 <Typography variant="caption" color="text.secondary">
                   <Stack direction="row" spacing={1}>
-                    <Skeleton
-                      animation="wave"
-                      variant="circular"
-                      width={16}
-                      height={16}
-                    />
+                    <Skeleton animation="wave" variant="circular" width={16} height={16} />
                     <Skeleton sx={{ width: { xs: 250, md: 450 } }} />
                   </Stack>
                 </Typography>

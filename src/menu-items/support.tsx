@@ -7,8 +7,6 @@ const icons = {
   QuestionOutlined
 };
 
-// ==============================|| MENU ITEMS - SAMPLE PAGE & DOCUMENTATION ||============================== //
-
 const support = {
   id: 'support',
   title: 'Support',

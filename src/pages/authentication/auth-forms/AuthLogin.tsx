@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
-// material-ui
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import Divider from '@mui/material/Divider';
@@ -20,7 +19,6 @@ import Typography from '@mui/material/Typography';
 import * as Yup from 'yup';
 import { Formik, FormikHelpers } from 'formik';
 
-// project import
 import AnimateButton from './../../../components/@extended/AnimateButton';
 
 // assets

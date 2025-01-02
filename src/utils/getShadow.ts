@@ -1,5 +1,3 @@
-// ==============================|| CUSTOM FUNCTION - COLOR SHADOWS ||============================== //
-
 interface Theme {
   customShadows: {
     secondary: string;

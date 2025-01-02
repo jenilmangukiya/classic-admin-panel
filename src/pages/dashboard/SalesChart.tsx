@@ -1,95 +1,91 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-// material-ui
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import Checkbox from "@mui/material/Checkbox";
-import FormControl from "@mui/material/FormControl";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import Checkbox from '@mui/material/Checkbox';
+import FormControl from '@mui/material/FormControl';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
-// third-party
-import ReactApexChart from "react-apexcharts";
-import MainCard from "../../components/MainCard";
+import ReactApexChart from 'react-apexcharts';
+import MainCard from '../../components/MainCard';
 
 // chart options
 const columnChartOptions = {
   chart: {
-    type: "bar",
+    type: 'bar',
     height: 430,
     toolbar: {
-      show: false,
-    },
+      show: false
+    }
   },
   plotOptions: {
     bar: {
-      columnWidth: "30%",
-      borderRadius: 4,
-    },
+      columnWidth: '30%',
+      borderRadius: 4
+    }
   },
   dataLabels: {
-    enabled: false,
+    enabled: false
   },
   stroke: {
     show: true,
     width: 8,
-    colors: ["transparent"],
+    colors: ['transparent']
   },
   xaxis: {
-    categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
   },
   yaxis: {
     title: {
-      text: "$ (thousands)",
-    },
+      text: '$ (thousands)'
+    }
   },
   fill: {
-    opacity: 1,
+    opacity: 1
   },
   tooltip: {
     y: {
       formatter(val) {
         return `$ ${val} thousands`;
-      },
-    },
+      }
+    }
   },
   legend: {
-    show: false,
+    show: false
   },
   responsive: [
     {
       breakpoint: 600,
       options: {
         yaxis: {
-          show: false,
-        },
-      },
-    },
-  ],
+          show: false
+        }
+      }
+    }
+  ]
 };
 
 const initialSeries = [
   {
-    name: "Income",
-    data: [180, 90, 135, 114, 120, 145],
+    name: 'Income',
+    data: [180, 90, 135, 114, 120, 145]
   },
   {
-    name: "Cost Of Sales",
-    data: [120, 45, 78, 150, 168, 99],
-  },
+    name: 'Cost Of Sales',
+    data: [120, 45, 78, 150, 168, 99]
+  }
 ];
-
-// ==============================|| SALES COLUMN CHART ||============================== //
 
 export default function SalesChart() {
   const theme = useTheme();
 
   const [legend, setLegend] = useState({
     income: true,
-    cos: true,
+    cos: true
   });
 
   const { income, cos } = legend;
@@ -107,7 +103,7 @@ export default function SalesChart() {
     setLegend({ ...legend, [event.target.name]: event.target.checked });
   };
 
-  const xsDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const xsDown = useMediaQuery(theme.breakpoints.down('sm'));
   const [options, setOptions] = useState(columnChartOptions);
 
   useEffect(() => {
@@ -116,16 +112,16 @@ export default function SalesChart() {
     } else if (income) {
       setSeries([
         {
-          name: "Income",
-          data: [180, 90, 135, 114, 120, 145],
-        },
+          name: 'Income',
+          data: [180, 90, 135, 114, 120, 145]
+        }
       ]);
     } else if (cos) {
       setSeries([
         {
-          name: "Cost Of Sales",
-          data: [120, 45, 78, 150, 168, 99],
-        },
+          name: 'Cost Of Sales',
+          data: [120, 45, 78, 150, 168, 99]
+        }
       ]);
     } else {
       setSeries([]);
@@ -137,59 +133,37 @@ export default function SalesChart() {
       (prevState) =>
         ({
           ...prevState,
-          colors:
-            !(income && cos) && cos ? [primaryMain] : [warning, primaryMain],
+          colors: !(income && cos) && cos ? [primaryMain] : [warning, primaryMain],
           xaxis: {
             labels: {
               style: {
-                colors: [
-                  secondary,
-                  secondary,
-                  secondary,
-                  secondary,
-                  secondary,
-                  secondary,
-                ],
-              },
-            },
+                colors: [secondary, secondary, secondary, secondary, secondary, secondary]
+              }
+            }
           },
           yaxis: {
             labels: {
               style: {
-                colors: [secondary],
-              },
-            },
+                colors: [secondary]
+              }
+            }
           },
           grid: {
-            borderColor: line,
+            borderColor: line
           },
           plotOptions: {
             bar: {
-              columnWidth: xsDown ? "60%" : "30%",
-            },
-          },
+              columnWidth: xsDown ? '60%' : '30%'
+            }
+          }
         } as any)
     );
-  }, [
-    primary,
-    secondary,
-    line,
-    warning,
-    primaryMain,
-    successDark,
-    income,
-    cos,
-    xsDown,
-  ]);
+  }, [primary, secondary, line, warning, primaryMain, successDark, income, cos, xsDown]);
 
   return (
     <MainCard sx={{ mt: 1 }} content={false}>
       <Box sx={{ p: 2.5, pb: 0 }}>
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
+        <Stack direction="row" alignItems="center" justifyContent="space-between">
           <Stack spacing={1.5}>
             <Typography variant="h6" color="secondary">
               Net Profit
@@ -199,36 +173,15 @@ export default function SalesChart() {
           <FormControl component="fieldset">
             <FormGroup row>
               <FormControlLabel
-                control={
-                  <Checkbox
-                    color="warning"
-                    checked={income}
-                    onChange={handleLegendChange}
-                    name="income"
-                  />
-                }
+                control={<Checkbox color="warning" checked={income} onChange={handleLegendChange} name="income" />}
                 label="Income"
               />
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={cos}
-                    onChange={handleLegendChange}
-                    name="cos"
-                  />
-                }
-                label="Cost of Sales"
-              />
+              <FormControlLabel control={<Checkbox checked={cos} onChange={handleLegendChange} name="cos" />} label="Cost of Sales" />
             </FormGroup>
           </FormControl>
         </Stack>
-        <Box id="chart" sx={{ bgcolor: "transparent" }}>
-          <ReactApexChart
-            options={options}
-            series={series}
-            type="bar"
-            height={360}
-          />
+        <Box id="chart" sx={{ bgcolor: 'transparent' }}>
+          <ReactApexChart options={options} series={series} type="bar" height={360} />
         </Box>
       </Box>
     </MainCard>

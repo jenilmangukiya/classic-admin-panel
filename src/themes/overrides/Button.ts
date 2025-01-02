@@ -1,7 +1,5 @@
-// material-ui
 import { alpha, Theme } from '@mui/material/styles';
 
-// project import
 import getColors from '../../utils/getColors';
 import getShadow from '../../utils/getShadow';
 
@@ -77,8 +75,6 @@ function getColorStyle({ variant, color, theme }: { variant: string; color: stri
       };
   }
 }
-
-// ==============================|| OVERRIDES - BUTTON ||============================== //
 
 export default function Button(theme: Theme) {
   const primaryDashed = getColorStyle({

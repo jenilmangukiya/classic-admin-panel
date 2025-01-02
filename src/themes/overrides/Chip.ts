@@ -1,8 +1,5 @@
-// project import
 import { Theme } from '@mui/material';
 import getColors from './../../utils/getColors';
-
-// ==============================|| CHIP - COLORS ||============================== //
 
 function getColor({ color, theme }: { color: string; theme: Theme }) {
   const colors = getColors(theme, color);
@@ -32,8 +29,6 @@ function getColorStyle({ color, theme }: { color: string; theme: Theme }) {
     }
   };
 }
-
-// ==============================|| OVERRIDES - CHIP ||============================== //
 
 export default function Chip(theme: Theme) {
   const defaultLightChip = getColorStyle({ color: 'secondary', theme });

@@ -1,34 +1,25 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
-// material-ui
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
-// project import
-import AuthFooter from "./../../components/cards/AuthFooter";
-import Logo from "./../../components/logo";
-import AuthCard from "./AuthCard";
+import AuthFooter from './../../components/cards/AuthFooter';
+import Logo from './../../components/logo';
+import AuthCard from './AuthCard';
 
 // assets
-import AuthBackground from "./../../assets/images/auth/AuthBackground";
+import AuthBackground from './../../assets/images/auth/AuthBackground';
 
 // Define props type
 interface AuthWrapperProps {
   children: ReactNode;
 }
 
-// ==============================|| AUTHENTICATION - WRAPPER ||============================== //
-
 const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
   return (
-    <Box sx={{ minHeight: "100vh" }}>
+    <Box sx={{ minHeight: '100vh' }}>
       <AuthBackground />
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-end"
-        sx={{ minHeight: "100vh" }}
-      >
+      <Grid container direction="column" justifyContent="flex-end" sx={{ minHeight: '100vh' }}>
         <Grid item xs={12} sx={{ ml: 3, mt: 3 }}>
           <Logo />
         </Grid>
@@ -41,10 +32,10 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ children }) => {
             alignItems="center"
             sx={{
               minHeight: {
-                xs: "calc(100vh - 210px)",
-                sm: "calc(100vh - 134px)",
-                md: "calc(100vh - 112px)",
-              },
+                xs: 'calc(100vh - 210px)',
+                sm: 'calc(100vh - 134px)',
+                md: 'calc(100vh - 112px)'
+              }
             }}
           >
             <Grid item>

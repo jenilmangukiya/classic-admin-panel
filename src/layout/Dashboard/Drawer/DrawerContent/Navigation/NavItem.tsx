@@ -1,28 +1,20 @@
-import { FC, forwardRef, useEffect } from "react";
-import { Link, useLocation, matchPath } from "react-router-dom";
+import { FC, forwardRef, useEffect } from 'react';
+import { Link, useLocation, matchPath } from 'react-router-dom';
 
-// material-ui
-import { useTheme } from "@mui/material/styles";
-import Avatar from "@mui/material/Avatar";
-import Chip from "@mui/material/Chip";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
-import { useGetMenuMaster, handlerActiveItem } from "../../../../../api/menu";
+import { useTheme } from '@mui/material/styles';
+import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
+import { useGetMenuMaster, handlerActiveItem } from '../../../../../api/menu';
 
 // Type definitions
 interface NavItemChip {
-  color:
-    | "default"
-    | "primary"
-    | "secondary"
-    | "error"
-    | "info"
-    | "success"
-    | "warning";
-  variant: "filled" | "outlined";
-  size: "small" | "medium";
+  color: 'default' | 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
+  variant: 'filled' | 'outlined';
+  size: 'small' | 'medium';
   label: string;
   avatar?: string;
 }
@@ -51,36 +43,30 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
   const drawerOpen = menuMaster.isDashboardDrawerOpened;
   const openItem = menuMaster.openedItem;
 
-  let itemTarget = "_self";
+  let itemTarget = '_self';
   if (item.target) {
-    itemTarget = "_blank";
+    itemTarget = '_blank';
   }
   let listItemProps = {
-    component: forwardRef((props, ref) => (
-      <Link ref={ref} {...props} to={item.url} target={itemTarget} />
-    )),
+    component: forwardRef((props, ref) => <Link ref={ref} {...props} to={item.url} target={itemTarget} />)
   };
   if (item?.external) {
-    listItemProps = { component: "a", href: item.url, target: itemTarget };
+    listItemProps = { component: 'a', href: item.url, target: itemTarget };
   }
 
   const Icon = item.icon;
-  const itemIcon = item.icon ? (
-    <Icon style={{ fontSize: drawerOpen ? "1rem" : "1.25rem" }} />
-  ) : null;
+  const itemIcon = item.icon ? <Icon style={{ fontSize: drawerOpen ? '1rem' : '1.25rem' }} /> : null;
 
   const { pathname } = useLocation();
-  const isSelected =
-    !!matchPath({ path: item.url, end: false }, pathname) ||
-    openItem === item.id;
+  const isSelected = !!matchPath({ path: item.url, end: false }, pathname) || openItem === item.id;
 
   // active menu item on page load
   useEffect(() => {
     if (pathname === item.url) handlerActiveItem(item.id);
   }, [pathname, item.id]);
 
-  const textColor = "text.primary";
-  const iconSelectedColor = "primary.main";
+  const textColor = 'text.primary';
+  const iconSelectedColor = 'primary.main';
 
   return (
     <ListItemButton
@@ -93,30 +79,30 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
         pl: drawerOpen ? `${level * 28}px` : 1.5,
         py: !drawerOpen && level === 1 ? 1.25 : 1,
         ...(drawerOpen && {
-          "&:hover": {
-            bgcolor: "primary.lighter",
+          '&:hover': {
+            bgcolor: 'primary.lighter'
           },
-          "&.Mui-selected": {
-            bgcolor: "primary.lighter",
+          '&.Mui-selected': {
+            bgcolor: 'primary.lighter',
             borderRight: `2px solid ${theme.palette.primary.main}`,
             color: iconSelectedColor,
-            "&:hover": {
+            '&:hover': {
               color: iconSelectedColor,
-              bgcolor: "primary.lighter",
-            },
-          },
+              bgcolor: 'primary.lighter'
+            }
+          }
         }),
         ...(!drawerOpen && {
-          "&:hover": {
-            bgcolor: "transparent",
+          '&:hover': {
+            bgcolor: 'transparent'
           },
-          "&.Mui-selected": {
-            "&:hover": {
-              bgcolor: "transparent",
+          '&.Mui-selected': {
+            '&:hover': {
+              bgcolor: 'transparent'
             },
-            bgcolor: "transparent",
-          },
-        }),
+            bgcolor: 'transparent'
+          }
+        })
       }}
     >
       {itemIcon && (
@@ -128,19 +114,19 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
               borderRadius: 1.5,
               width: 36,
               height: 36,
-              alignItems: "center",
-              justifyContent: "center",
-              "&:hover": {
-                bgcolor: "secondary.lighter",
-              },
+              alignItems: 'center',
+              justifyContent: 'center',
+              '&:hover': {
+                bgcolor: 'secondary.lighter'
+              }
             }),
             ...(!drawerOpen &&
               isSelected && {
-                bgcolor: "primary.lighter",
-                "&:hover": {
-                  bgcolor: "primary.lighter",
-                },
-              }),
+                bgcolor: 'primary.lighter',
+                '&:hover': {
+                  bgcolor: 'primary.lighter'
+                }
+              })
           }}
         >
           {itemIcon}
@@ -149,10 +135,7 @@ const NavItem: FC<NavItemProps> = ({ item, level }) => {
       {(drawerOpen || (!drawerOpen && level !== 1)) && (
         <ListItemText
           primary={
-            <Typography
-              variant="h6"
-              sx={{ color: isSelected ? iconSelectedColor : textColor }}
-            >
+            <Typography variant="h6" sx={{ color: isSelected ? iconSelectedColor : textColor }}>
               {item.title}
             </Typography>
           }

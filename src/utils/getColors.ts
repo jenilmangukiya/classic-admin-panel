@@ -1,5 +1,3 @@
-// ==============================|| CUSTOM FUNCTION - COLORS ||============================== //
-
 import { Theme } from '@mui/material';
 
 const getColors = (theme: Theme, color: string) => {

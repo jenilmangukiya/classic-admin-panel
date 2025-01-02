@@ -1,12 +1,9 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-// material-ui
 import { ButtonBase } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import config from './../../config';
-
-// ==============================|| MAIN LOGO ||============================== //
 
 interface LogoSectionProps {
   sx?: object;

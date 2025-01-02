@@ -1,28 +1,25 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-// material-ui
-import Chip from "@mui/material/Chip";
-import Grid from "@mui/material/Grid";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-
-// project import
+import Chip from '@mui/material/Chip';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // assets
-import RiseOutlined from "@ant-design/icons/RiseOutlined";
-import FallOutlined from "@ant-design/icons/FallOutlined";
-import MainCard from "../../MainCard";
+import RiseOutlined from '@ant-design/icons/RiseOutlined';
+import FallOutlined from '@ant-design/icons/FallOutlined';
+import MainCard from '../../MainCard';
 
 const iconSX = {
-  fontSize: "0.75rem",
-  color: "inherit",
+  fontSize: '0.75rem',
+  color: 'inherit',
   marginLeft: 0,
-  marginRight: 0,
+  marginRight: 0
 };
 
 interface AnalyticEcommerceProps {
-  color?: "primary" | "secondary" | "error" | "info" | "success" | "warning";
+  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning';
   title?: string;
   count?: string;
   percentage?: number;
@@ -30,14 +27,7 @@ interface AnalyticEcommerceProps {
   extra?: string;
 }
 
-const AnalyticEcommerce: FC<AnalyticEcommerceProps> = ({
-  color = "primary",
-  title,
-  count,
-  percentage,
-  isLoss,
-  extra,
-}) => {
+const AnalyticEcommerce: FC<AnalyticEcommerceProps> = ({ color = 'primary', title, count, percentage, isLoss, extra }) => {
   return (
     <MainCard contentSX={{ p: 2.25 }}>
       <Stack spacing={0.5}>
@@ -55,13 +45,7 @@ const AnalyticEcommerce: FC<AnalyticEcommerceProps> = ({
               <Chip
                 variant="combined"
                 color={color}
-                icon={
-                  isLoss ? (
-                    <FallOutlined style={iconSX} />
-                  ) : (
-                    <RiseOutlined style={iconSX} />
-                  )
-                }
+                icon={isLoss ? <FallOutlined style={iconSX} /> : <RiseOutlined style={iconSX} />}
                 label={`${percentage}%`}
                 sx={{ ml: 1.25, pl: 1 }}
                 size="small"
@@ -72,13 +56,10 @@ const AnalyticEcommerce: FC<AnalyticEcommerceProps> = ({
       </Stack>
       <Box sx={{ pt: 2.25 }}>
         <Typography variant="caption" color="text.secondary">
-          You made an extra{" "}
-          <Typography
-            variant="caption"
-            sx={{ color: `${color || "primary"}.main` }}
-          >
+          You made an extra{' '}
+          <Typography variant="caption" sx={{ color: `${color || 'primary'}.main` }}>
             {extra}
-          </Typography>{" "}
+          </Typography>{' '}
           this year
         </Typography>
       </Box>

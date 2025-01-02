@@ -1,4 +1,3 @@
-// material-ui
 import { styled } from '@mui/material/styles';
 import LinearProgress from '@mui/material/LinearProgress';
 
@@ -13,8 +12,6 @@ const LoaderWrapper = styled('div')(({ theme }) => ({
     marginTop: theme.spacing(2)
   }
 }));
-
-// ==============================|| Loader ||============================== //
 
 const Loader = () => (
   <LoaderWrapper>

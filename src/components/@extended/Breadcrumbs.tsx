@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-// material-ui
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import MuiBreadcrumbs from "@mui/material/Breadcrumbs";
-import MainCard from "../MainCard";
-
-// project import
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import MuiBreadcrumbs from '@mui/material/Breadcrumbs';
+import MainCard from '../MainCard';
 
 interface Menu {
   type?: string;
@@ -25,11 +22,7 @@ interface BreadcrumbsProps {
   [key: string]: any;
 }
 
-export default function Breadcrumbs({
-  navigation,
-  title,
-  ...others
-}: BreadcrumbsProps) {
+export default function Breadcrumbs({ navigation, title, ...others }: BreadcrumbsProps) {
   const location = useLocation();
   const [main, setMain] = useState<Menu | null>(null);
   const [item, setItem] = useState<Menu | null>(null);
@@ -37,9 +30,9 @@ export default function Breadcrumbs({
   const getCollapse = (menu: Menu) => {
     if (menu.children) {
       menu.children.forEach((collapse) => {
-        if (collapse.type === "collapse") {
+        if (collapse.type === 'collapse') {
           getCollapse(collapse);
-        } else if (collapse.type === "item") {
+        } else if (collapse.type === 'item') {
           if (location.pathname === collapse.url) {
             setMain(menu);
             setItem(collapse);
@@ -51,39 +44,33 @@ export default function Breadcrumbs({
 
   useEffect(() => {
     navigation?.items?.forEach((menu) => {
-      if (menu.type === "group") {
+      if (menu.type === 'group') {
         getCollapse(menu);
       }
     });
   }, [location.pathname, navigation]);
 
   // only used for component demo breadcrumbs
-  if (location.pathname === "/breadcrumbs") {
-    location.pathname = "/dashboard/analytics";
+  if (location.pathname === '/breadcrumbs') {
+    location.pathname = '/dashboard/analytics';
   }
 
   let mainContent;
   let itemContent;
   let breadcrumbContent = <Typography />;
-  let itemTitle = "";
+  let itemTitle = '';
 
   // collapse item
-  if (main && main.type === "collapse") {
+  if (main && main.type === 'collapse') {
     mainContent = (
-      <Typography
-        component={Link}
-        to={document.location.pathname}
-        variant="h6"
-        sx={{ textDecoration: "none" }}
-        color="textSecondary"
-      >
+      <Typography component={Link} to={document.location.pathname} variant="h6" sx={{ textDecoration: 'none' }} color="textSecondary">
         {main.title}
       </Typography>
     );
   }
 
   // items
-  if (item && item.type === "item") {
+  if (item && item.type === 'item') {
     itemTitle = item.title;
     itemContent = (
       <Typography variant="subtitle1" color="textPrimary">
@@ -94,28 +81,11 @@ export default function Breadcrumbs({
     // main
     if (item.breadcrumbs !== false) {
       breadcrumbContent = (
-        <MainCard
-          border={false}
-          sx={{ mb: 3, bgcolor: "transparent" }}
-          {...others}
-          content={false}
-        >
-          <Grid
-            container
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            spacing={1}
-          >
+        <MainCard border={false} sx={{ mb: 3, bgcolor: 'transparent' }} {...others} content={false}>
+          <Grid container direction="column" justifyContent="flex-start" alignItems="flex-start" spacing={1}>
             <Grid item>
               <MuiBreadcrumbs aria-label="breadcrumb">
-                <Typography
-                  component={Link}
-                  to="/"
-                  color="textSecondary"
-                  variant="h6"
-                  sx={{ textDecoration: "none" }}
-                >
+                <Typography component={Link} to="/" color="textSecondary" variant="h6" sx={{ textDecoration: 'none' }}>
                   Home
                 </Typography>
                 {mainContent}
