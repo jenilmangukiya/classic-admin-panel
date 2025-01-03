@@ -15,7 +15,7 @@ const chartAndMaps = {
     },
     {
       id: 'Maps',
-      title: 'Map',
+      title: 'Google maps',
       type: 'item',
       url: '/maps',
       icon: PushpinOutlined
