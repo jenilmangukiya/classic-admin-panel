@@ -2,6 +2,7 @@ import { lazy } from 'react';
 
 import Loadable from '../components/Loadable';
 import Dashboard from '../layout/Dashboard';
+import Charts from '../pages/ChartAndMaps/Charts';
 
 const Color = Loadable(lazy(() => import('../pages/component-overview/color')));
 const Typography = Loadable(lazy(() => import('../pages/component-overview/typography')));
@@ -45,6 +46,14 @@ const MainRoutes = {
     },
     {
       path: 'mui-table',
+      element: <MuiTable />
+    },
+    {
+      path: 'charts',
+      element: <Charts />
+    },
+    {
+      path: 'maps',
       element: <MuiTable />
     }
   ]

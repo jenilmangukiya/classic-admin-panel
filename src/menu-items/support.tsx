@@ -18,15 +18,6 @@ const support = {
       type: 'item',
       url: '/sample-page',
       icon: icons.ChromeOutlined
-    },
-    {
-      id: 'documentation',
-      title: 'Documentation',
-      type: 'item',
-      url: '',
-      icon: icons.QuestionOutlined,
-      external: true,
-      target: true
     }
   ]
 };
